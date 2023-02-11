@@ -1,0 +1,26 @@
+.list-wrap{
+    margin: 8px;
+    padding: 4px;
+}
+.list-wrap ul{
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.list-wrap ul li{
+    word-break: break-all;
+    width: 500px;
+    cursor: pointer;
+    text-align: center;
+    padding: 4px;
+    margin: 2px;
+    background-color: rgb(70, 69, 68);
+    border-radius: 4px;
+}
+
+@media (max-width:600px) {
+   .list-wrap ul li{
+    max-width: 200px;
+   }
+}
