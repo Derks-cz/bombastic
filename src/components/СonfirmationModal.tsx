@@ -1,7 +1,6 @@
 import React, { Dispatch, SetStateAction } from 'react'
 import ReactDom from 'react-dom'
 import "../css/confirmModal.css"
-import { useAppDispatch } from '../redux/redux'
 import { dleteItemAction } from "../redux/reducers/listReducer"
 import { useDispatch } from 'react-redux'
 
