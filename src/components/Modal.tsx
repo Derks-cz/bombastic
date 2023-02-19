@@ -2,9 +2,7 @@ import React, { useState } from "react"
 import ReactDOM from "react-dom"
 import {useDispatch} from 'react-redux'
 import '../css/modal.css'
-import { useAppDispatch } from "../redux/redux"
-import { addAction } from "../redux/rootReducer"
-import { AppDispatch, RootState } from "../redux/store"
+import { addItemAction } from "../redux/reducers/listReducer"
 interface ModalProps {
   showModal: boolean
   closeModal: ()=> void
@@ -13,14 +11,16 @@ interface ModalProps {
 const modal: HTMLElement = document.getElementById("modal") as HTMLDivElement
 
 const Modal: React.FC<ModalProps> = ({ showModal,closeModal }) => {
-  const dispatch = useAppDispatch()
+  const dispatch = useDispatch()
   const [title,setTitle] = useState("")
+  
   if (!showModal) return null
 
   const addToStore = () =>{
     
+
     if(title.trim().length){
-      dispatch(addAction({id:new Date().getTime(),title}))
+      dispatch(addItemAction({id:new Date().getTime(),title}))
       setTitle("")
     }
   }

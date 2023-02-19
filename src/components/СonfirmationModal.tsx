@@ -2,7 +2,8 @@ import React, { Dispatch, SetStateAction } from 'react'
 import ReactDom from 'react-dom'
 import "../css/confirmModal.css"
 import { useAppDispatch } from '../redux/redux'
-import { deleteAction } from '../redux/rootReducer'
+import { dleteItemAction } from "../redux/reducers/listReducer"
+import { useDispatch } from 'react-redux'
 
 interface СonfirmationModalProps{
     showConfirmModal: boolean
@@ -14,11 +15,11 @@ interface СonfirmationModalProps{
 const СonfirmationModal:React.FC<СonfirmationModalProps> = ({showConfirmModal,setShowConfirmModal,selectedItem,setSelectedItem}) =>{
     if(!showConfirmModal) return null
     
-    const dispath = useAppDispatch()
+    const dispath = useDispatch()
 
 
     const deleteItem = () =>{
-        dispath(deleteAction(selectedItem))
+        dispath(dleteItemAction(selectedItem))
         setSelectedItem(0)
         setShowConfirmModal(false)
       }

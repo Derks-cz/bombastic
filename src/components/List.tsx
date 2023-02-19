@@ -8,8 +8,7 @@ interface ListProps {
 }
 
 const List:React.FC<ListProps> = ({setSelectedItem,selectedItem}) =>{
-    const selector = useAppSelector(selector => selector.list)
-
+    const selector = useAppSelector(selector => selector.list.items)
     const selectItem = (index:number) =>{
         if(index == selectedItem) return
         setSelectedItem(index)
@@ -18,6 +17,7 @@ const List:React.FC<ListProps> = ({setSelectedItem,selectedItem}) =>{
 
     return (    
     <div className='list-wrap'>
+
             <ul>
                 {selector.map((l,i)=>(
                     <li style={{border: selectedItem ===i ? "2px solid green":"none"}} onClick={()=>selectItem(i)} key={l.id}>{l.title}</li>
